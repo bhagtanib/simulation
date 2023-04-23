@@ -10,11 +10,19 @@
 // standard io libraries.
 #include <iostream>
 
+#include "../simulation/data.h"
+
+
+
+
+
 
 
 int main() {
 
     std::cout << " Test 4" << std::endl;
+    Process p = Process(20, 30, 1);
+    std::cout << "Id: " << p.getPid() << "\tPriority: " << p.getPriority() << std::endl;
 
     return 0; 
 }
