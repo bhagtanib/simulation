@@ -4,9 +4,10 @@
 #include <algorithm>
 #include <random>
 #include <ctime>
-
+#include <iostream>
 
     Process::Process(int arrival, int execution, int prio) {
+        
         // Generate random ID
         std::mt19937 rng(std::time(0));
         std::uniform_int_distribution<int> distribution(1000, 9999);
@@ -20,6 +21,7 @@
         arrival_time = arrival;
         execution_time = execution;
         priority = prio;
+        //cout<<"Priority assigned: " << this->priority << "\n";
     }
 
     int Process::getPid() const {

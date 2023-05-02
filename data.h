@@ -38,8 +38,6 @@ class Process {
         
         int getPriority() const ;
 
-    
-
 
     protected : 
 
