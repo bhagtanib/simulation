@@ -67,20 +67,22 @@ int main() {
     nArrived.pop();
 
     int counter = 0;
-
     while (s.getLengthArrival() > 0)
     {
         Process currentProcess = s.getFromArrived();
-        std::cout<< "Process " << currentProcess.getPid() << " is being executed. \n";
+        //std::cout<< "Process " << currentProcess.getPid() << " is being executed. \n";
+        
         counter += currentProcess.getExecutionTime();
-        std::cout<<"Current time into system: " << counter << "ms \n";
-        // Add the next process to arrived from nArrived
-        while(true)
+        //std::cout<<"Current time into system: " << counter << "ms \n";
+     
+        std::cout << currentProcess.getArrivalTime() << " -> ";
+        while(!nArrived.empty())
         {
-           Process temp = nArrived.front();
-           if(temp.getArrivalTime() <= counter){
+    
+           Process temp = std::move(nArrived.front());
+           if(temp.getArrivalTime() <= counter ){
                 s.addToArrived(temp);
-                std::cout << "Process " << temp.getPid() << "has been added to the queue. \n";
+                // std::cout << "Process " << temp.getPid() << "has been added to the queue. \n";
                 nArrived.pop();
            }
            else{

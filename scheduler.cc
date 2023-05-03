@@ -8,7 +8,7 @@ void Scheduler:: addToArrived( Process proc){
     arrived.push(proc);
 }
 Process Scheduler:: getFromArrived( ){
-    Process temp = arrived.front();
+    Process temp = std::move(arrived.front());
     arrived.pop();
     return  temp;
 }   
